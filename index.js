@@ -28,6 +28,7 @@ function main() {
         };
       });
     });
+
   result.forEach((item) => {
     item.forEach((i) => {
       console.log(
