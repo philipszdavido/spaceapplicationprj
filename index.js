@@ -40,11 +40,18 @@ function main() {
     .sort((a, b) => {
       return b[1].votes - a[1].votes;
     })
-    .slice(1);
+    .slice(1)
+    .map((item) => {
+      return {
+        name: item[0],
+        votes: item[1].votes,
+        voters: [...new Set(item[1].voters)],
+      };
+    });
 
   sorted.forEach((item) => {
     console.log(
-      `Item: ${item[0]}, Votes: ${item[1].votes}, Voters: ${item[1].voters}`
+      `Item: ${item.name}, Votes: ${item.votes}, Voters: ${item.voters}`
     );
   });
 }
